@@ -17,7 +17,7 @@ F.e. when sending out notification e-mails, you sometimes want to include back-e
 
 ## Usage
 
-This library contains
+The base package contains an extension method to be used on the `IOwinContext` interface, while the WebApi package adds an extension method to be used in an `ApiController`.
 
 ### From OWIN middleware
 
