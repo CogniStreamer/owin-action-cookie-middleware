@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2024
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DA509C97-125E-42AC-9705-EB5687681C82}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{99CC568C-7D93-4BA4-9A82-00DC1B6D4EE5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0E946910-D981-42F4-9EB3-D7FFD9F9A8CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwinActionCookieMiddleware", "src\OwinActionCookieMiddleware\OwinActionCookieMiddleware.csproj", "{5B9DB5C2-2777-4B7F-A407-2D50242B0D50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwinActionCookieMiddlewareTests", "tests\OwinActionCookieMiddlewareTests\OwinActionCookieMiddlewareTests.csproj", "{E6CD8972-A5C7-4C4E-8CFC-E3F667C0AF2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwinActionCookieMiddleware.WebApi", "src\OwinActionCookieMiddleware.WebApi\OwinActionCookieMiddleware.WebApi.csproj", "{59685159-45AE-4967-96BD-47A7FB886051}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B9DB5C2-2777-4B7F-A407-2D50242B0D50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B9DB5C2-2777-4B7F-A407-2D50242B0D50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B9DB5C2-2777-4B7F-A407-2D50242B0D50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B9DB5C2-2777-4B7F-A407-2D50242B0D50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6CD8972-A5C7-4C4E-8CFC-E3F667C0AF2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6CD8972-A5C7-4C4E-8CFC-E3F667C0AF2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6CD8972-A5C7-4C4E-8CFC-E3F667C0AF2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6CD8972-A5C7-4C4E-8CFC-E3F667C0AF2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59685159-45AE-4967-96BD-47A7FB886051}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59685159-45AE-4967-96BD-47A7FB886051}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59685159-45AE-4967-96BD-47A7FB886051}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59685159-45AE-4967-96BD-47A7FB886051}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{99CC568C-7D93-4BA4-9A82-00DC1B6D4EE5} = {DA509C97-125E-42AC-9705-EB5687681C82}
+		{0E946910-D981-42F4-9EB3-D7FFD9F9A8CB} = {DA509C97-125E-42AC-9705-EB5687681C82}
+		{5B9DB5C2-2777-4B7F-A407-2D50242B0D50} = {99CC568C-7D93-4BA4-9A82-00DC1B6D4EE5}
+		{E6CD8972-A5C7-4C4E-8CFC-E3F667C0AF2F} = {0E946910-D981-42F4-9EB3-D7FFD9F9A8CB}
+		{59685159-45AE-4967-96BD-47A7FB886051} = {99CC568C-7D93-4BA4-9A82-00DC1B6D4EE5}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2BAAA1FA-C0CC-4C21-BAE1-46DD6CF393CC}
+	EndGlobalSection
+EndGlobal
