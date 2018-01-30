@@ -11,5 +11,8 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>WebAPI extensions for OwinActionCookieMiddleware</description>
     <copyright>Copyright 2018 CogniStreamer</copyright>
+    <dependencies>
+      <dependency id="Microsoft.AspNet.WebApi.Core" version="5.2.3" />
+    </dependencies>
   </metadata>
 </package>

@@ -11,5 +11,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>OWIN middleware that allows sending actions to a single page application in the form of a cookie</description>
     <copyright>Copyright 2018 CogniStreamer</copyright>
+    <dependencies>
+      <dependency id="Microsoft.Owin" version="3.1.0" />
+      <dependency id="Owin" version="1.0" />
+    </dependencies>
   </metadata>
 </package>
