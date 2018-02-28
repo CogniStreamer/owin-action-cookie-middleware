@@ -13,11 +13,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{99CC568C-7D9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0E946910-D981-42F4-9EB3-D7FFD9F9A8CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwinActionCookieMiddleware", "src\OwinActionCookieMiddleware\OwinActionCookieMiddleware.csproj", "{5B9DB5C2-2777-4B7F-A407-2D50242B0D50}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwinActionMiddleware", "src\OwinActionMiddleware\OwinActionMiddleware.csproj", "{5B9DB5C2-2777-4B7F-A407-2D50242B0D50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwinActionCookieMiddlewareTests", "tests\OwinActionCookieMiddlewareTests\OwinActionCookieMiddlewareTests.csproj", "{E6CD8972-A5C7-4C4E-8CFC-E3F667C0AF2F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwinActionMiddlewareTests", "tests\OwinActionMiddlewareTests\OwinActionMiddlewareTests.csproj", "{E6CD8972-A5C7-4C4E-8CFC-E3F667C0AF2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwinActionCookieMiddleware.WebApi", "src\OwinActionCookieMiddleware.WebApi\OwinActionCookieMiddleware.WebApi.csproj", "{59685159-45AE-4967-96BD-47A7FB886051}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwinActionMiddleware.WebApi", "src\OwinActionMiddleware.WebApi\OwinActionMiddleware.WebApi.csproj", "{59685159-45AE-4967-96BD-47A7FB886051}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

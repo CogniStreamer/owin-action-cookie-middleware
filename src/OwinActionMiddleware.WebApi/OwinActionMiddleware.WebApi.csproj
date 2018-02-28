@@ -7,8 +7,8 @@
     <ProjectGuid>{59685159-45AE-4967-96BD-47A7FB886051}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OwinActionCookieMiddleware.WebApi</RootNamespace>
-    <AssemblyName>OwinActionCookieMiddleware.WebApi</AssemblyName>
+    <RootNamespace>OwinActionMiddleware.WebApi</RootNamespace>
+    <AssemblyName>OwinActionMiddleware.WebApi</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -58,7 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActionCookieApiControllerExtensions.cs" />
+    <Compile Include="ActionApiControllerExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -66,9 +66,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OwinActionCookieMiddleware\OwinActionCookieMiddleware.csproj">
-      <Project>{5B9DB5C2-2777-4B7F-A407-2D50242B0D50}</Project>
-      <Name>OwinActionCookieMiddleware</Name>
+    <ProjectReference Include="..\OwinActionMiddleware\OwinActionMiddleware.csproj">
+      <Project>{5b9db5c2-2777-4b7f-a407-2d50242b0d50}</Project>
+      <Name>OwinActionMiddleware</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,19 +1,19 @@
-# OWIN Action Cookie Middleware
+# OWIN Action Middleware
 
 [![Build status](https://ci.appveyor.com/api/projects/status/wm6ior5dbbg2705u/branch/master?svg=true)](https://ci.appveyor.com/project/CogniStreamer/owin-action-cookie-middleware/branch/master)
 
-OWIN middleware that allows sending actions to a single page application in the form of a cookie.
+OWIN middleware that allows sending actions to a single page application in the form of a cookie or redirect.
 
-When the middleware is challenged, it will return an JavaScript readable cookie containing an action object as JSON.
+When the middleware is challenged, it will redirect to a fixed URL passing an action object in the URL or return an JavaScript readable cookie containing an action object as JSON.
 
-This is useful in cases where the back-end requests a single-page application to perform a certain action without having to hardcode front-end routes.
+This is useful in cases where the back-end requests a single-page application to perform a certain action without having to hardcode different front-end routes.
 
 F.e. when sending out notification e-mails, you sometimes want to include back-end links in the e-mail.
 
-## Get it on [NuGet](https://www.nuget.org/packages/OwinActionCookieMiddleware/)
+## Get it on [NuGet](https://www.nuget.org/packages/OwinActionMiddleware/)
 
-    PM> Install-Package OwinActionCookieMiddleware
-    PM> Install-Package OwinActionCookieMiddleware.WebApi
+    PM> Install-Package OwinActionMiddleware
+    PM> Install-Package OwinActionMiddleware.WebApi
 
 ## Usage
 

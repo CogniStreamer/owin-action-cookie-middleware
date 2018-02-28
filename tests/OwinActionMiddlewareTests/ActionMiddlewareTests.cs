@@ -6,27 +6,27 @@ using Microsoft.Owin;
 using Microsoft.Owin.Testing;
 using NUnit.Framework;
 using Owin;
-using OwinActionCookieMiddleware;
+using OwinActionMiddleware;
 
-namespace OwinActionCookieMiddlewareTests
+namespace OwinActionMiddlewareTests
 {
     [TestFixture]
-    public class ActionCookieMiddlewareTests
+    public class ActionMiddlewareTests
     {
         [Test]
-        public void ActionCookieMiddleware_Constructor_PassNullAsOptions_ShouldThrowArgumentNullException()
+        public void ActionMiddleware_Constructor_PassNullAsOptions_ShouldThrowArgumentNullException()
         {
-            var ex = Assert.Throws<ArgumentNullException>(() => new ActionCookieMiddleware(null, null));
+            var ex = Assert.Throws<ArgumentNullException>(() => new ActionMiddleware(null, null));
             Assert.That(ex.ParamName, Is.EqualTo("options"));
         }
 
         [Test]
-        public void ActionCookieMiddleware_Constructor_PassInvalidOptionValues_ShouldThrowException()
+        public void ActionMiddleware_Constructor_PassInvalidOptionValues_ShouldThrowException()
         {
             ArgumentException ex;
 
-            ex = Assert.Throws<ArgumentNullException>(() => new ActionCookieMiddleware(null,
-                new ActionCookieMiddlewareOptions
+            ex = Assert.Throws<ArgumentNullException>(() => new ActionMiddleware(null,
+                new ActionMiddlewareOptions
                 {
                     ApplicationUrl = null,
                     CookieName = "Name",
@@ -34,8 +34,8 @@ namespace OwinActionCookieMiddlewareTests
                 }));
             Assert.That(ex.ParamName, Is.EqualTo("ApplicationUrl"));
 
-            ex = Assert.Throws<ArgumentException>(() => new ActionCookieMiddleware(null,
-                new ActionCookieMiddlewareOptions
+            ex = Assert.Throws<ArgumentException>(() => new ActionMiddleware(null,
+                new ActionMiddlewareOptions
                 {
                     ApplicationUrl = new Uri("/test", UriKind.Relative),
                     CookieName = "Name",
@@ -44,8 +44,8 @@ namespace OwinActionCookieMiddlewareTests
             Assert.That(ex.Message, Does.StartWith("Must be an absolute URL"));
             Assert.That(ex.ParamName, Is.EqualTo("ApplicationUrl"));
 
-            ex = Assert.Throws<ArgumentNullException>(() => new ActionCookieMiddleware(null,
-                new ActionCookieMiddlewareOptions
+            ex = Assert.Throws<ArgumentNullException>(() => new ActionMiddleware(null,
+                new ActionMiddlewareOptions
                 {
                     ApplicationUrl = new Uri("http://localhost"),
                     CookieName = null,
@@ -53,8 +53,8 @@ namespace OwinActionCookieMiddlewareTests
                 }));
             Assert.That(ex.ParamName, Is.EqualTo("CookieName"));
 
-            ex = Assert.Throws<ArgumentNullException>(() => new ActionCookieMiddleware(null,
-                new ActionCookieMiddlewareOptions
+            ex = Assert.Throws<ArgumentNullException>(() => new ActionMiddleware(null,
+                new ActionMiddlewareOptions
                 {
                     ApplicationUrl = new Uri("http://localhost"),
                     CookieName = string.Empty,
@@ -64,10 +64,10 @@ namespace OwinActionCookieMiddlewareTests
         }
 
         [Test]
-        public void ActionCookieMiddleware_Constructor_PassingNullAsCookieDomain_ShouldNotThrowException()
+        public void ActionMiddleware_Constructor_PassingNullAsCookieDomain_ShouldNotThrowException()
         {
-            Assert.DoesNotThrow(() => new ActionCookieMiddleware(null,
-                new ActionCookieMiddlewareOptions
+            Assert.DoesNotThrow(() => new ActionMiddleware(null,
+                new ActionMiddlewareOptions
                 {
                     ApplicationUrl = new Uri("http://localhost"),
                     CookieName = "Name",
@@ -76,9 +76,9 @@ namespace OwinActionCookieMiddlewareTests
         }
 
         [Test]
-        public async Task ActionCookieMiddleware_DontChallengeMiddleware_ShouldNotAddCookie()
+        public async Task ActionMiddleware_DontChallengeMiddleware_ShouldNotAddCookie()
         {
-            var options = new ActionCookieMiddlewareOptions
+            var options = new ActionMiddlewareOptions
             {
                 ApplicationUrl = new Uri("https://test.server.com"),
                 CookieName = "ACT"
@@ -86,7 +86,7 @@ namespace OwinActionCookieMiddlewareTests
 
             using (var server = TestServer.Create(app =>
             {
-                app.Use<ActionCookieMiddleware>(options);
+                app.Use<ActionMiddleware>(options);
 
                 app.Use(async (ctx, next) =>
                 {
@@ -103,9 +103,9 @@ namespace OwinActionCookieMiddlewareTests
         }
 
         [Test]
-        public async Task ActionCookieMiddleware_ChallengeMiddleware_ShouldAddCookieAndRedirect()
+        public async Task ActionMiddleware_ChallengeMiddleware_ShouldAddCookieAndRedirect()
         {
-            var options = new ActionCookieMiddlewareOptions
+            var options = new ActionMiddlewareOptions
             {
                 ApplicationUrl = new Uri("https://test.server.com"),
                 CookieName = "ACT"
@@ -113,7 +113,7 @@ namespace OwinActionCookieMiddlewareTests
 
             using (var server = TestServer.Create(app =>
             {
-                app.Use<ActionCookieMiddleware>(options);
+                app.Use<ActionMiddleware>(options);
 
                 app.Use(async (ctx, next) =>
                 {
@@ -138,9 +138,9 @@ namespace OwinActionCookieMiddlewareTests
         }
 
         [Test]
-        public async Task ActionCookieMiddleware_PassCustomCookieDomain_ChallengeMiddleware_ShouldAddCookieWithCustomDomain()
+        public async Task ActionMiddleware_PassCustomCookieDomain_ChallengeMiddleware_ShouldAddCookieWithCustomDomain()
         {
-            var options = new ActionCookieMiddlewareOptions
+            var options = new ActionMiddlewareOptions
             {
                 ApplicationUrl = new Uri("https://test.server.com"),
                 CookieName = "ACT",
@@ -149,7 +149,7 @@ namespace OwinActionCookieMiddlewareTests
 
             using (var server = TestServer.Create(app =>
             {
-                app.Use<ActionCookieMiddleware>(options);
+                app.Use<ActionMiddleware>(options);
 
                 app.Use(async (ctx, next) =>
                 {
@@ -169,9 +169,9 @@ namespace OwinActionCookieMiddlewareTests
         }
 
         [Test]
-        public async Task ActionCookieMiddleware_PassCustomData_ChallengeMiddleware_ShouldAddCookieWithCustomData()
+        public async Task ActionMiddleware_PassCustomData_ChallengeMiddleware_ShouldAddCookieWithCustomData()
         {
-            var options = new ActionCookieMiddlewareOptions
+            var options = new ActionMiddlewareOptions
             {
                 ApplicationUrl = new Uri("https://test.server.com"),
                 CookieName = "ACT"
@@ -179,7 +179,7 @@ namespace OwinActionCookieMiddlewareTests
 
             using (var server = TestServer.Create(app =>
             {
-                app.Use<ActionCookieMiddleware>(options);
+                app.Use<ActionMiddleware>(options);
 
                 app.Use(async (ctx, next) =>
                 {

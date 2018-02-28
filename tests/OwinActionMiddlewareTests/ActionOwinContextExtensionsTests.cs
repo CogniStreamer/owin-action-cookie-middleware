@@ -1,12 +1,12 @@
 ﻿using Microsoft.Owin;
 using Moq;
 using NUnit.Framework;
-using OwinActionCookieMiddleware;
+using OwinActionMiddleware;
 
-namespace OwinActionCookieMiddlewareTests
+namespace OwinActionMiddlewareTests
 {
     [TestFixture]
-    public class ActionCookieOwinContextExtensionsTests
+    public class ActionOwinContextExtensionsTests
     {
         [Test]
         public void ChallengeActionMiddleware_ShouldAddDataToEnvironment()
@@ -20,7 +20,7 @@ namespace OwinActionCookieMiddlewareTests
             context.Object.ChallengeActionMiddleware(data);
 
             context.Verify(x => x.Set(It.IsAny<string>(), data), Times.Once);
-            Assert.That(collectedKey, Does.StartWith("ChallengeActionCookie."));
+            Assert.That(collectedKey, Does.StartWith("ChallengeActionMiddleware."));
         }
 
         [Test]

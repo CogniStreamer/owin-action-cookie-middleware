@@ -1,12 +1,12 @@
 ﻿using System.Net.Http;
 using System.Web.Http.Results;
 using Microsoft.Owin;
-using OwinActionCookieMiddleware;
+using OwinActionMiddleware;
 
 // ReSharper disable once CheckNamespace
 namespace System.Web.Http
 {
-    public static class ActionCookieApiControllerExtensions
+    public static class ActionApiControllerExtensions
     {
         public static void ChallengeActionMiddleware(this ApiController controller, ActionData actionData)
             => controller.Request.GetOwinContext().ChallengeActionMiddleware(actionData);

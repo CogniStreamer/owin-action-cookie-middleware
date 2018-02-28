@@ -1,12 +1,12 @@
 ﻿using System;
-using OwinActionCookieMiddleware;
+using OwinActionMiddleware;
 
 // ReSharper disable once CheckNamespace
 namespace Microsoft.Owin
 {
-    public static class ActionCookieOwinContextExtensions
+    public static class ActionOwinContextExtensions
     {
-        private static readonly string UniqueKey = $"ChallengeActionCookie.{Guid.NewGuid():N}";
+        private static readonly string UniqueKey = $"ChallengeActionMiddleware.{Guid.NewGuid():N}";
 
         public static IOwinContext ChallengeActionMiddleware(this IOwinContext context, ActionData actionData)
             => context.Set(UniqueKey, actionData);

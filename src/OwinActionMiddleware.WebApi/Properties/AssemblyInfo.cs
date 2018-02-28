@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("OwinActionCookieMiddleware.WebApi")]
-[assembly: AssemblyDescription("WebAPI extensions for OwinActionCookieMiddleware")]
+[assembly: AssemblyTitle("OwinActionMiddleware.WebApi")]
+[assembly: AssemblyDescription("WebAPI extensions for OwinActionMiddleware")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("CogniStreamer")]
-[assembly: AssemblyProduct("OwinActionCookieMiddleware.WebApi")]
+[assembly: AssemblyProduct("OwinActionMiddleware.WebApi")]
 [assembly: AssemblyCopyright("Copyright ©  2018 CogniStreamer")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

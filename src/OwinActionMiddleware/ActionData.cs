@@ -1,4 +1,4 @@
-﻿namespace OwinActionCookieMiddleware
+﻿namespace OwinActionMiddleware
 {
     public class ActionData
     {

@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace OwinActionCookieMiddleware
+namespace OwinActionMiddleware
 {
-    public class ActionCookieMiddlewareOptions
+    public class ActionMiddlewareOptions
     {
         public Uri ApplicationUrl { get; set; }
         public string CookieName { get; set; }

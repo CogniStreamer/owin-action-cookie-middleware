@@ -5,19 +5,19 @@ using System.Web.Http;
 using Microsoft.Owin.Testing;
 using NUnit.Framework;
 using Owin;
-using OwinActionCookieMiddleware;
+using OwinActionMiddleware;
 
-namespace OwinActionCookieMiddlewareTests
+namespace OwinActionMiddlewareTests
 {
     [TestFixture]
-    public class ActionCookieApiControllerExtensionsTests
+    public class ActionApiControllerExtensionsTests
     {
         [Test]
         public async Task ChallengeActionMiddleware_ShouldAddDataToOwinEnvironment()
         {
             using (var server = TestServer.Create(app =>
             {
-                app.UseActionCookieMiddleware(new ActionCookieMiddlewareOptions
+                app.UseActionMiddleware(new ActionMiddlewareOptions
                 {
                     ApplicationUrl = new Uri("https://test.server.com"),
                     CookieName = "ACT"
@@ -39,7 +39,7 @@ namespace OwinActionCookieMiddlewareTests
         {
             using (var server = TestServer.Create(app =>
             {
-                app.UseActionCookieMiddleware(new ActionCookieMiddlewareOptions
+                app.UseActionMiddleware(new ActionMiddlewareOptions
                 {
                     ApplicationUrl = new Uri("https://test.server.com"),
                     CookieName = "ACT"
@@ -58,7 +58,7 @@ namespace OwinActionCookieMiddlewareTests
     }
 
     [RoutePrefix("test")]
-    public class ActionCookieTestController : ApiController
+    public class ActionTestController : ApiController
     {
         [HttpGet, Route("challenge")]
         public IHttpActionResult Challenge()

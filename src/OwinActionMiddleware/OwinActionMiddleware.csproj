@@ -7,8 +7,8 @@
     <ProjectGuid>{5B9DB5C2-2777-4B7F-A407-2D50242B0D50}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OwinActionCookieMiddleware</RootNamespace>
-    <AssemblyName>OwinActionCookieMiddleware</AssemblyName>
+    <RootNamespace>OwinActionMiddleware</RootNamespace>
+    <AssemblyName>OwinActionMiddleware</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -49,10 +49,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActionCookieIAppBuilderExtensions.cs" />
-    <Compile Include="ActionCookieMiddleware.cs" />
-    <Compile Include="ActionCookieMiddlewareOptions.cs" />
-    <Compile Include="ActionCookieOwinContextExtensions.cs" />
+    <Compile Include="ActionIAppBuilderExtensions.cs" />
+    <Compile Include="ActionMiddleware.cs" />
+    <Compile Include="ActionMiddlewareOptions.cs" />
+    <Compile Include="ActionOwinContextExtensions.cs" />
     <Compile Include="ActionData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

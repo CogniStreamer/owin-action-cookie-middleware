@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("OwinActionCookieMiddleware")]
-[assembly: AssemblyDescription("OWIN middleware that allows sending actions to a single page application in the form of a cookie")]
+[assembly: AssemblyTitle("OwinActionMiddlewareTests")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("CogniStreamer")]
-[assembly: AssemblyProduct("OwinActionCookieMiddleware")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("OwinActionMiddlewareTests")]
 [assembly: AssemblyCopyright("Copyright ©  2018 CogniStreamer")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("5b9db5c2-2777-4b7f-a407-2d50242b0d50")]
+[assembly: Guid("e6cd8972-a5c7-4c4e-8cfc-e3f667c0af2f")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -34,4 +34,3 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
-[assembly: InternalsVisibleTo("OwinActionCookieMiddlewareTests")]

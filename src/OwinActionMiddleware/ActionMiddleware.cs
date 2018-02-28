@@ -4,16 +4,16 @@ using Microsoft.Owin;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
-namespace OwinActionCookieMiddleware
+namespace OwinActionMiddleware
 {
-    internal class ActionCookieMiddleware : OwinMiddleware
+    internal class ActionMiddleware : OwinMiddleware
     {
         private readonly Uri _applicationUrl;
         private readonly string _cookieName;
         private readonly string _customCookieDomain;
         private readonly JsonSerializerSettings _serializerSettings;
 
-        public ActionCookieMiddleware(OwinMiddleware next, ActionCookieMiddlewareOptions options)
+        public ActionMiddleware(OwinMiddleware next, ActionMiddlewareOptions options)
             : base(next)
         {
             if (options == null) throw new ArgumentNullException(nameof(options));
