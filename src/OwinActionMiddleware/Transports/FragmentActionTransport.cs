@@ -10,11 +10,11 @@ namespace OwinActionMiddleware
 {
     public class FragmentActionTransport : IActionTransport
     {
-        private readonly Uri _baseUrl;
+        private readonly string _baseUrl;
         private readonly string _fragmentParameterName;
         private readonly JsonSerializerSettings _serializerSettings;
 
-        public FragmentActionTransport(Uri baseUrl, string fragmentParameterName)
+        public FragmentActionTransport(string baseUrl, string fragmentParameterName)
         {
             if (string.IsNullOrEmpty(fragmentParameterName)) throw new ArgumentNullException(nameof(fragmentParameterName));
             _baseUrl = baseUrl ?? throw new ArgumentNullException(nameof(baseUrl));
@@ -27,11 +27,10 @@ namespace OwinActionMiddleware
 
         public Task Invoke(IOwinContext context, ActionData actionData)
         {
-            var baseUrl = _baseUrl.ToString();
-            var location = new StringBuilder(baseUrl);
-            if (!baseUrl.EndsWith("#"))
+            var location = new StringBuilder(_baseUrl);
+            if (!_baseUrl.EndsWith("#"))
             {
-                location.Append(baseUrl.Contains("#") ? "&" : "#");
+                location.Append(_baseUrl.Contains("#") ? "&" : "#");
             }
 
             var fragmentData = JsonConvert.SerializeObject(actionData, _serializerSettings);

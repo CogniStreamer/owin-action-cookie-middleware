@@ -11,10 +11,10 @@ namespace OwinActionMiddleware
     {
         private readonly string _cookieName;
         private readonly string _customCookieDomain;
-        private readonly Uri _optionalRedirectUrl;
+        private readonly string _optionalRedirectUrl;
         private readonly JsonSerializerSettings _serializerSettings;
 
-        public CookieActionTransport(string cookieName, string customCookieDomain = null, Uri optionalRedirectUrl = null)
+        public CookieActionTransport(string cookieName, string customCookieDomain = null, string optionalRedirectUrl = null)
         {
             if (string.IsNullOrEmpty(cookieName)) throw new ArgumentNullException(nameof(cookieName));
             _cookieName = cookieName;
@@ -39,7 +39,7 @@ namespace OwinActionMiddleware
                     Secure = false
                 });
 
-            if (_optionalRedirectUrl != null) context.Response.Redirect(_optionalRedirectUrl.ToString());
+            if (_optionalRedirectUrl != null) context.Response.Redirect(_optionalRedirectUrl);
 
             return Task.CompletedTask;
         }

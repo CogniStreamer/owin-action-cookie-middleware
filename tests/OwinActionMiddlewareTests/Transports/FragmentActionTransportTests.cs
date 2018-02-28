@@ -22,38 +22,38 @@ namespace OwinActionMiddlewareTests.Transports
         [Test]
         public void FragmentActionTransport_Constructor_PassNullOrEmptyFragmentParameterName_ShouldThrowException()
         {
-            var ex = Assert.Throws<ArgumentNullException>(() => new FragmentActionTransport(new Uri("https://some.domain.com"), null));
+            var ex = Assert.Throws<ArgumentNullException>(() => new FragmentActionTransport("https://some.domain.com", null));
             Assert.That(ex.ParamName, Is.EqualTo("fragmentParameterName"));
 
-            ex = Assert.Throws<ArgumentNullException>(() => new FragmentActionTransport(new Uri("https://some.domain.com"), string.Empty));
+            ex = Assert.Throws<ArgumentNullException>(() => new FragmentActionTransport("https://some.domain.com", string.Empty));
             Assert.That(ex.ParamName, Is.EqualTo("fragmentParameterName"));
         }
 
         [Test]
         public Task FragmentActionTransport_InvokeWithAbsoluteUriWithoutFragment_ShouldRedirectToBaseUrlWithActionInFragment()
-            => BaseUrlTest(new Uri("https://some.domain.com"), new Uri("https://some.domain.com/#act=%7B%22action%22%3A%22JumpAround%22%7D"));
+            => BaseUrlTest("https://some.domain.com/", "https://some.domain.com/#act=%7B%22action%22%3A%22JumpAround%22%7D");
 
         [Test]
         public Task FragmentActionTransport_InvokeWithAbsoluteUriWithEmptyFragment_ShouldRedirectToBaseUrlWithActionInFragment()
-            => BaseUrlTest(new Uri("https://some.domain.com/#"), new Uri("https://some.domain.com/#act=%7B%22action%22%3A%22JumpAround%22%7D"));
+            => BaseUrlTest("https://some.domain.com/#", "https://some.domain.com/#act=%7B%22action%22%3A%22JumpAround%22%7D");
 
         [Test]
         public Task FragmentActionTransport_InvokeWithAbsoluteUriWithExistingFragment_ShouldRedirectToBaseUrlWithActionAddedToExistingFragment()
-            => BaseUrlTest(new Uri("https://some.domain.com/#test=123"), new Uri("https://some.domain.com/#test=123&act=%7B%22action%22%3A%22JumpAround%22%7D"));
+            => BaseUrlTest("https://some.domain.com/#test=123", "https://some.domain.com/#test=123&act=%7B%22action%22%3A%22JumpAround%22%7D");
 
         [Test]
         public Task FragmentActionTransport_InvokeWithRelativeUriWithoutFragment_ShouldRedirectToBaseUrlWithActionInFragment()
-            => BaseUrlTest(new Uri("/test", UriKind.Relative), new Uri("/test#act=%7B%22action%22%3A%22JumpAround%22%7D", UriKind.Relative));
+            => BaseUrlTest("/test", "/test#act=%7B%22action%22%3A%22JumpAround%22%7D");
 
         [Test]
         public Task FragmentActionTransport_InvokeWithRelativeUriWithEmptyFragment_ShouldRedirectToBaseUrlWithActionInFragment()
-            => BaseUrlTest(new Uri("/test#", UriKind.Relative), new Uri("/test#act=%7B%22action%22%3A%22JumpAround%22%7D", UriKind.Relative));
+            => BaseUrlTest("/test#", "/test#act=%7B%22action%22%3A%22JumpAround%22%7D");
 
         [Test]
         public Task FragmentActionTransport_InvokeWithRelativeUriWithExistingFragment_ShouldRedirectToBaseUrlWithActionAddedToExistingFragment()
-            => BaseUrlTest(new Uri("/test#one=two", UriKind.Relative), new Uri("/test#one=two&act=%7B%22action%22%3A%22JumpAround%22%7D", UriKind.Relative));
+            => BaseUrlTest("/test#one=two", "/test#one=two&act=%7B%22action%22%3A%22JumpAround%22%7D");
 
-        private static async Task BaseUrlTest(Uri baseUrl, Uri expectedRedirectUrl)
+        private static async Task BaseUrlTest(string baseUrl, string expectedRedirectUrl)
         {
             using (var server = TestServer.Create(app =>
             {
@@ -74,7 +74,7 @@ namespace OwinActionMiddlewareTests.Transports
                 var response = await client.GetAsync("/test");
                 Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Redirect));
                 Assert.That(response.Headers.Location, Is.Not.Null);
-                Assert.That(response.Headers.Location, Is.EqualTo(expectedRedirectUrl));
+                Assert.That(response.Headers.Location.OriginalString, Is.EqualTo(expectedRedirectUrl));
             }
         }
     }

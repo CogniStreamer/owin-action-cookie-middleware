@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Microsoft.Owin.Testing;
@@ -19,7 +18,7 @@ namespace OwinActionMiddlewareTests
             {
                 app.UseActionMiddleware(new ActionMiddlewareOptions
                 {
-                    Transport = new CookieActionTransport("ACT", optionalRedirectUrl: new Uri("https://test.server.com"))
+                    Transport = new CookieActionTransport("ACT", optionalRedirectUrl: "https://test.server.com")
                 });
                 var config = new HttpConfiguration();
                 config.MapHttpAttributeRoutes();
@@ -40,7 +39,7 @@ namespace OwinActionMiddlewareTests
             {
                 app.UseActionMiddleware(new ActionMiddlewareOptions
                 {
-                    Transport = new CookieActionTransport("ACT", optionalRedirectUrl: new Uri("https://test.server.com"))
+                    Transport = new CookieActionTransport("ACT", optionalRedirectUrl: "https://test.server.com")
                 });
                 var config = new HttpConfiguration();
                 config.MapHttpAttributeRoutes();

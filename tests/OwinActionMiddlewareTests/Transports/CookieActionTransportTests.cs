@@ -84,7 +84,7 @@ namespace OwinActionMiddlewareTests.Transports
             {
                 app.UseActionMiddleware(new ActionMiddlewareOptions
                 {
-                    Transport = new CookieActionTransport("ACT", optionalRedirectUrl: new Uri("https://some.domain.com"))
+                    Transport = new CookieActionTransport("ACT", optionalRedirectUrl: "https://some.domain.com")
                 });
 
                 app.Use(async (ctx, next) =>
