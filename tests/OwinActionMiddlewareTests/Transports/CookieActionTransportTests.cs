@@ -24,14 +24,6 @@ namespace OwinActionMiddlewareTests.Transports
         }
 
         [Test]
-        public void CookieActionTransport_Constructor_PassRelativeOptionalRedirectUrl_ShouldThrowException()
-        {
-            var ex = Assert.Throws<ArgumentException>(() => new CookieActionTransport("ACT", optionalRedirectUrl: new Uri("/test", UriKind.Relative)));
-            Assert.That(ex.ParamName, Is.EqualTo("optionalRedirectUrl"));
-            Assert.That(ex.Message, Does.StartWith("Must be an absolute URL when provided"));
-        }
-
-        [Test]
         public async Task CookieActionTransport_Invoke_GivenCookieName_ShouldSetCookieWithoutRedirect()
         {
             using (var server = TestServer.Create(app =>

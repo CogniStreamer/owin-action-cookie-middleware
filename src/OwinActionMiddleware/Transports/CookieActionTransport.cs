@@ -17,7 +17,6 @@ namespace OwinActionMiddleware
         public CookieActionTransport(string cookieName, string customCookieDomain = null, Uri optionalRedirectUrl = null)
         {
             if (string.IsNullOrEmpty(cookieName)) throw new ArgumentNullException(nameof(cookieName));
-            if (optionalRedirectUrl != null && !optionalRedirectUrl.IsAbsoluteUri) throw new ArgumentException("Must be an absolute URL when provided", nameof(optionalRedirectUrl));
             _cookieName = cookieName;
             _customCookieDomain = customCookieDomain;
             _optionalRedirectUrl = optionalRedirectUrl;
