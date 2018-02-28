@@ -54,6 +54,8 @@
     <Compile Include="ActionMiddlewareOptions.cs" />
     <Compile Include="ActionOwinContextExtensions.cs" />
     <Compile Include="ActionData.cs" />
+    <Compile Include="Transports\CookieActionTransport.cs" />
+    <Compile Include="Transports\IActionTransport.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

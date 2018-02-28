@@ -19,8 +19,7 @@ namespace OwinActionMiddlewareTests
             {
                 app.UseActionMiddleware(new ActionMiddlewareOptions
                 {
-                    ApplicationUrl = new Uri("https://test.server.com"),
-                    CookieName = "ACT"
+                    Transport = new CookieActionTransport("ACT", optionalRedirectUrl: new Uri("https://test.server.com"))
                 });
                 var config = new HttpConfiguration();
                 config.MapHttpAttributeRoutes();
@@ -41,8 +40,7 @@ namespace OwinActionMiddlewareTests
             {
                 app.UseActionMiddleware(new ActionMiddlewareOptions
                 {
-                    ApplicationUrl = new Uri("https://test.server.com"),
-                    CookieName = "ACT"
+                    Transport = new CookieActionTransport("ACT", optionalRedirectUrl: new Uri("https://test.server.com"))
                 });
                 var config = new HttpConfiguration();
                 config.MapHttpAttributeRoutes();
