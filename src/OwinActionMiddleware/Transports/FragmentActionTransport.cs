@@ -12,13 +12,15 @@ namespace OwinActionMiddleware
     {
         private readonly string _baseUrl;
         private readonly string _fragmentParameterName;
+        private readonly bool _useBase64Encoding;
         private readonly JsonSerializerSettings _serializerSettings;
 
-        public FragmentActionTransport(string baseUrl, string fragmentParameterName)
+        public FragmentActionTransport(string baseUrl, string fragmentParameterName, bool useBase64Encoding = false)
         {
             if (string.IsNullOrEmpty(fragmentParameterName)) throw new ArgumentNullException(nameof(fragmentParameterName));
             _baseUrl = baseUrl ?? throw new ArgumentNullException(nameof(baseUrl));
             _fragmentParameterName = fragmentParameterName;
+            _useBase64Encoding = useBase64Encoding;
             _serializerSettings = new JsonSerializerSettings
             {
                 ContractResolver = new CamelCasePropertyNamesContractResolver()
@@ -34,6 +36,7 @@ namespace OwinActionMiddleware
             }
 
             var fragmentData = JsonConvert.SerializeObject(actionData, _serializerSettings);
+            if (_useBase64Encoding) fragmentData = Convert.ToBase64String(Encoding.UTF8.GetBytes(fragmentData));
             location.Append(_fragmentParameterName);
             location.Append("=");
             location.Append(Uri.EscapeDataString(fragmentData));

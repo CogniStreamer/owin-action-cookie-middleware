@@ -53,13 +53,17 @@ namespace OwinActionMiddlewareTests.Transports
         public Task FragmentActionTransport_InvokeWithRelativeUriWithExistingFragment_ShouldRedirectToBaseUrlWithActionAddedToExistingFragment()
             => BaseUrlTest("/test#one=two", "/test#one=two&act=%7B%22action%22%3A%22JumpAround%22%7D");
 
-        private static async Task BaseUrlTest(string baseUrl, string expectedRedirectUrl)
+        [Test]
+        public Task FragmentActionTransport_InvokeUsingBase64Encoding_ShouldRedirectToBaseUrlWithBase64EncodedActionInFragment()
+            => BaseUrlTest("https://some.domain.com/", "https://some.domain.com/#act=eyJhY3Rpb24iOiJKdW1wQXJvdW5kIn0%3D", true);
+
+        private static async Task BaseUrlTest(string baseUrl, string expectedRedirectUrl, bool useBase64Encoding = false)
         {
             using (var server = TestServer.Create(app =>
             {
                 app.UseActionMiddleware(new ActionMiddlewareOptions
                 {
-                    Transport = new FragmentActionTransport(baseUrl, "act")
+                    Transport = new FragmentActionTransport(baseUrl, "act", useBase64Encoding)
                 });
 
                 app.Use(async (ctx, next) =>
